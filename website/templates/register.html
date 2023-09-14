@@ -1,0 +1,14 @@
+{% extends 'base.html'%}
+
+{%block title%} Register {%endblock%}
+
+{% block content %}
+    <div class = "col-md-6 offset-md-3">
+        <form method = "POST" action="{% url 'register' %}">
+            {%csrf_token%}
+            {{form}}
+            <br/>
+            <input type="submit" value="submit">
+        </form>
+    </div>
+{% endblock %}

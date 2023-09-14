@@ -1,8 +1,21 @@
 {%extends 'base.html'%}
 
-{%block title%}Home page{%endblock%}
+
 {%block content%}
 
-<h2>hello</h2>
+{%if user.is_authenticated %}
+{%block title%}Home page{%endblock%}
+<div class="col-md-6 offset-md-3">
+    <h2>hello</h2>
+</div>
+{%else%}
+<div class = "col-md-6 offset-md-3">
+<form method = "POST" action="{%url 'home'%}">
+    {%csrf_token%}
+    {{form}}
+    <input type="submit" value="submit">
+</form>
+</div>
+{%endif%}
 
 {%endblock%}
