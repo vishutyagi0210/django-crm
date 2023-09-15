@@ -72,5 +72,8 @@ def update_record(request , pk):
     
 def delete_data(request , pk):
     object_del = get_object_or_404(models.Record , pk=pk)
-    object_del.delete()
-    return redirect('home')
+    if request.method == "POST":
+        object_del.delete()
+        return redirect('home')
+    else:
+        return render(request , 'delet_confirm.html' , {'record':object_del})

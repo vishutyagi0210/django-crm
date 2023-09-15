@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{%block title%} delete confirm {% endblock %}
+
+{% block content %}
+
+    <form method = "POST" action="">
+        {%csrf_token%}
+        <div class="col-md-6 offset-md-3">
+            <h3>Are you sure do you want to delete {{record.first_name}} Record</h3>
+            <input type="submit" value="confirm">
+            <button type="submit"><a href="{%url 'home'%}">cancel</a></button>
+        </div>
+    </form>
+{% endblock %}
